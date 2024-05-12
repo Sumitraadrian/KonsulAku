@@ -19,7 +19,7 @@ Aplikasi KonsulAku sejalan dengan poin 3 SDGs yakni **Good Health and Well-Being
 You can check out our project plan [here]() !
 
 ## Teaser Video Preview
-Get a sneak peek of our project with our teaser video [here]() !
+Get a sneak peek of our project with our teaser video [here](https://www.instagram.com/reel/C64JGxJyY50TlPkwj7Wk6xHV6r_QMv8BB6jwnk0/?igsh=MWxhYXBhcWV5ajY0Nw==) !
 
 
 
