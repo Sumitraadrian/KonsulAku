@@ -16,7 +16,7 @@ KonsulaAku merupakan produk berbentuk chatbot yang akan memudahkan user untukdal
 Aplikasi KonsulAku sejalan dengan poin 3 SDGs yakni **Good Health and Well-Being**, dimana aplikasi ini memfasilitasi diagnosis dini dan saran obat penyakit kulit. Dengan memberikan informasi yang cepat dan mudah diakses tentang kondisi kulit, cahtbot ini mendorong pengguna agar dapat menghubungi bantuan medis secara tepat waktu, sehingga dapat meningkatkan hasil kesehatan dan mengurangi beban penyakit kulit yang tidak diobati.
 
 ## Proposal
-You can check out our project plan [here]() !
+You can check out our proposal [Proposal KonsulAku](https://www.canva.com/design/DAGEL8PMkmk/lxHBIDDI2HYc-OmhyaL3Qw/view?utm_content=DAGEL8PMkmk&utm_campaign=designshare&utm_medium=link&utm_source=editor)
 
 ## Teaser Video Preview
 Get a sneak peek of our project with our teaser video [here](https://www.instagram.com/reel/C64JGxJyY50TlPkwj7Wk6xHV6r_QMv8BB6jwnk0/?igsh=MWxhYXBhcWV5ajY0Nw==) !
