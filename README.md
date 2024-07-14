@@ -45,6 +45,10 @@ This research paper describes in detail the implementation of machine learning a
 - Backend Development
      - Flask
      - SocketIO
+     - jQuery
+     - Bootstrap
+     - Tensorflow
+     - MongoDB Atlas
 ---
 
 ## Installation Instructions
