@@ -1,7 +1,8 @@
 import os
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, session
 import cv2
+import uuid
 import numpy as np
 import tensorflow as tf
 from flask_socketio import SocketIO, emit
@@ -137,6 +138,8 @@ last_predicted_disease = None
 
 @app.route('/')
 def home():
+     # Generate a new session ID for each page load
+    session['session_id'] = str(uuid.uuid4())
     return render_template('index.html')
 
 # Chatbot introduction message
@@ -176,7 +179,8 @@ def predict():
     predicted_solution = disease_info[predicted_class]['solution']
 
     # Simpan prediksi penyakit terakhir
-    last_predicted_disease = disease_info[predicted_class]
+  # Save the last predicted disease
+    session['last_predicted_disease'] = disease_info[predicted_class]
 
     # Return response
     response = {
@@ -191,21 +195,30 @@ def predict():
     response['message'] = "Do you need any more help or information?"
     return jsonify(response)
 
+# Function to save chat history
+def save_chat_history(session_id, user_message, bot_response):
+    mongo.db.chat_history.update_one(
+        {'session_id': session_id},
+        {'$push': {'messages': {'user_message': user_message, 'bot_response': bot_response}}},
+        upsert=True
+    )
+
 # Chatbot endpoint
 @socketio.on('message')
 def handle_message(message):
     print(f"Received message: {message}")
 
+    session_id = session.get('session_id')
     response = process_message(message)
+    save_chat_history(session_id, message, response)
     emit('response', {'response': response})
 
-    # Save user message to MongoDB
-    mongo.db.messages.insert_one({'sender': 'user', 'message': message})
 
 def process_message(message):
     global last_predicted_disease
     print(f"Received message: {message}")
-
+    
+    last_predicted_disease = session.get('last_predicted_disease')
     # Dummy response logic, implement your chatbot logic here
     if 'help' in message.lower() or 'please' in message.lower() and ('detect' in message.lower() or 'skin disease' in message.lower()):
         print("User requests help detecting skin disease")
@@ -254,9 +267,7 @@ def process_message(message):
 
     return "I'm here to help! You can ask me about the symptoms or treatment of any skin disease listed above."
 
-# Main entry point
-if __name__ == '__main__':
-    socketio.run(app, debug=True)
 
+# Main entry point
 if __name__ == '__main__':
     socketio.run(app, debug=True)
