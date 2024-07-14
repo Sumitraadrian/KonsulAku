@@ -1,17 +1,17 @@
 $(document).ready(function () {
     var socket = io();
-    var chatHistory = []; // Array untuk menyimpan riwayat percakapan
+    var chatHistory = []; // Array to store chat history
 
-    // Fungsi untuk menampilkan pesan pengantar sistem saat halaman dimuat
+    // Function to show the introduction message when the page loads
     function showIntroduction() {
         var introductionMessage = "Hi there! I'm your Skin Disease Prediction Chatbot. You can ask me about various skin diseases or upload an image for diagnosis. I am Konsula, a chatbot that will make it easier for you to detect and know the type of skin disease you are experiencing. Konsula will provide responses related to skin disease problems such as treatment recommendations needed as an initial step (first aid).";
         appendMessage('bot', introductionMessage);
-        // Simpan pesan pengantar ke dalam riwayat percakapan
+        // Save introduction message to chat history
         chatHistory.push({ sender: 'bot', message: introductionMessage });
     }
 
-    // Memanggil fungsi showIntroduction saat halaman pertama kali dimuat
-    showIntroduction()
+    // Call showIntroduction when the page first loads
+    showIntroduction();
 
     $('#send-button').on('click', function (event) {
         event.preventDefault();
@@ -31,7 +31,7 @@ $(document).ready(function () {
         } else {
             $('#upload-predict-buttons').hide();
         }
-        // Simpan pesan dari bot ke riwayat percakapan
+        // Save bot message to chat history
         chatHistory.push({ sender: 'bot', message: data.response });
 
         // Check if additional help message is needed
@@ -54,7 +54,7 @@ $(document).ready(function () {
                 appendMessage('bot', 'Predicted Label: ' + response.label);
                 appendMessage('bot', response.description);
                 appendMessage('bot', '<img src="/static/uploads/' + response.filename + '" width="300">');
-                // Simpan pesan dari bot ke riwayat percakapan
+                // Save bot message to chat history
                 chatHistory.push({ sender: 'bot', message: 'Predicted Label: ' + response.label });
                 chatHistory.push({ sender: 'bot', message: response.description });
 
@@ -69,18 +69,6 @@ $(document).ready(function () {
             }
         });
     });
-
-    // Fungsi untuk menampilkan tombol-tombol sesi
-            // Event listener for 'New Chat' button
-    // Event listener for 'New Chat' button
-    $('#new-chat-button').on('click', function () {
-        $.get('/new_chat', function () {
-            $('#chat-box').empty(); // Clear chat box
-            chatHistory = []; // Clear chat history
-            displayPreviousChats(); // Display previous chats as buttons
-        });
-    });
-
 
     function appendMessage(sender, text) {
         var messageClass = sender === 'user' ? 'user' : 'bot';
@@ -104,4 +92,4 @@ $(document).ready(function () {
             $('#upload-predict-buttons').hide();
         }
     }
-});      
+});

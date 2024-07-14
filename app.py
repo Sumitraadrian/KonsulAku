@@ -135,12 +135,21 @@ disease_info = {
 
 # Global variable to store the last predicted disease
 last_predicted_disease = None
-
 @app.route('/')
-def home():
-     # Generate a new session ID for each page load
-    session['session_id'] = str(uuid.uuid4())
+def landing_page():
     return render_template('index.html')
+
+@app.route('/chatbot')
+def chatbot():
+    # Generate a new session ID for each page load
+    session['session_id'] = str(uuid.uuid4())
+    return render_template('chatbot.html')  # This is your chatbot page
+
+#@app.route('/')
+#def home():
+     # Generate a new session ID for each page load
+ #   session['session_id'] = str(uuid.uuid4())
+  #  return render_template('indexx.html')
 
 # Chatbot introduction message
 INTRO_MESSAGE = "Hi! I'm here to help you detect skin diseases from images. Please upload an image of the skin condition you want to diagnose."
