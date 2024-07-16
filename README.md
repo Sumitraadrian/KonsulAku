@@ -22,7 +22,7 @@ You can check out our proposal [Proposal KonsulAku](https://www.canva.com/design
 Get a sneak peek of our project with our teaser video [here](https://www.instagram.com/reel/C64JGxJyY50TlPkwj7Wk6xHV6r_QMv8BB6jwnk0/?igsh=MWxhYXBhcWV5ajY0Nw==) !
 
 ## Demontration Aplication
-Check out the KonsulAku app demo to understand how this chatbot works in detecting skin diseases and providing initial recommendations. Click on the link below to see the full demo: [KonsulAku Demo]()
+Check out the KonsulAku app demo to understand how this chatbot works in detecting skin diseases and providing initial recommendations. Click on the link below to see the full demo: [KonsulAku Demo](https://youtu.be/L7l0IICK41g) 
 
 ## Research Paper
 This research paper describes in detail the implementation of machine learning algorithms in the KonsulAku project. We discuss the methods used, the results achieved, and their impact on the project objectives. You can read our research paper at the following link: [Research Paper]().
